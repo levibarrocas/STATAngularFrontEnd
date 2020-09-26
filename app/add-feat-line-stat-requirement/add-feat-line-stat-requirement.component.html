@@ -1,0 +1,22 @@
+<rz-content #content1 container="main">
+  <rz-heading #pageTitle size="H1" text="Add Feat Line Stat Requirement">
+  </rz-heading>
+  <rz-form #form0 (submit)="form0Submit($event)">
+    <rz-selectbar-form-field property="RequiredStat" [required]="false" requiredText="is required" title="Required Stat" type="selectbar">
+      <rz-selectbar-form-field-option text="INT" value="1">
+      </rz-selectbar-form-field-option>
+      <rz-selectbar-form-field-option text="CHA" value="2">
+      </rz-selectbar-form-field-option>
+      <rz-selectbar-form-field-option text="DEX" value="3">
+      </rz-selectbar-form-field-option>
+      <rz-selectbar-form-field-option text="WIS" value="4">
+      </rz-selectbar-form-field-option>
+      <rz-selectbar-form-field-option text="CON" value="5">
+      </rz-selectbar-form-field-option>
+      <rz-selectbar-form-field-option text="STR" value="6">
+      </rz-selectbar-form-field-option>
+    </rz-selectbar-form-field>
+    <rz-integer-form-field maxText="cannot be more than" [min]="0" minText="cannot be less than" property="Amount" [required]="false" requiredText="is required" title="Amount" type="integer">
+    </rz-integer-form-field>
+  </rz-form>
+</rz-content>

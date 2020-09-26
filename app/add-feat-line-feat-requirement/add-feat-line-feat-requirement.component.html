@@ -1,0 +1,10 @@
+<rz-content #content1 container="main">
+  <rz-heading #pageTitle size="H1" text="Add Feat Line Feat Requirement">
+  </rz-heading>
+  <rz-form #form0 (submit)="form0Submit($event)">
+    <rz-lookup-form-field [data]="Feats" property="RequirementFeatID" [required]="false" requiredText="is required" textProperty="Name" title="Requirement Feat ID" valueProperty="ID" multipleItemsSelectedText="{0} items selected" emptyFilterText="No results found" type="lookup">
+    </rz-lookup-form-field>
+    <rz-integer-form-field maxText="cannot be more than" minText="cannot be less than" property="Level" [required]="false" requiredText="is required" title="Level" type="integer">
+    </rz-integer-form-field>
+  </rz-form>
+</rz-content>

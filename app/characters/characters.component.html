@@ -1,0 +1,207 @@
+<rz-content #content1 container="main">
+  <rz-heading #pageTitle size="H1" text="Characters">
+  </rz-heading>
+  <div class="row">
+    <div class="col-md-6">
+      <rz-label #label20 text="Chosen character:">
+      </rz-label>
+      <rz-dropdown-datagrid #dropdownDatagrid0 [count]="CharacterCount" [data]="Characters" defaultValue="0" emptyText="No records to display." searchText="Search..." textProperty="Name" [(ngModel)]="CharacterIndex" valueProperty="OwnerCharacterID" name="dropdownDatagrid0" (change)="dropdownDatagrid0Change($event)">
+        <rz-dropdown-datagrid-column property="Name" title="Name">
+        </rz-dropdown-datagrid-column>
+      </rz-dropdown-datagrid>
+    </div>
+    <div class="col-md-6 justify-content-end">
+      <rz-button #button0 icon="add_circle_outline" text="Create a new character" (click)="button0Click($event)">
+      </rz-button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <rz-heading #heading1 size="H4" [style]="{}" text="Character Name: {{Character?.name}}">
+      </rz-heading>
+      <rz-heading #heading2 size="H4" [style]="{}" text="Character Energy Avaliable: {{Character?.energy}}" *ngIf="Character?.characterComplete">
+      </rz-heading>
+      <rz-heading #heading3 size="H4" [style]="{}" text="Character Stats Avaliable: {{Character?.statPointsFree}}" *ngIf="!Character?.characterComplete">
+      </rz-heading>
+    </div>
+    <div class="col-md-6">
+      <rz-button #button7 text="Finish character creation" *ngIf="!Character?.characterComplete" (click)="button7Click($event)">
+      </rz-button>
+    </div>
+  </div>
+  <rz-accordion #accordion0>
+    <rz-accordion-item [selected]="false" text="Basic Stats">
+      <div class="col-md-12">
+        <rz-label #label8 [style]="{}" text="Name:">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-textbox #textbox0 placeholder="Name" [style]="{}" [(ngModel)]="Character && Character.name" name="textbox0">
+        </rz-textbox>
+      </div>
+      <div class="col-md-12">
+        <rz-label #label11 text="Gender:">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-textbox #textbox9 placeholder="Gender" [style]="{}" [(ngModel)]="Character && Character.gender" name="textbox9">
+        </rz-textbox>
+      </div>
+      <div class="col-md-12">
+        <rz-label #label12 text="Description:">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-textarea #textarea0 [cols]="40" placeholder="Description" [rows]="4" [(ngModel)]="Character && Character.description" name="textarea0">
+        </rz-textarea>
+      </div>
+      <div class="col-md-12">
+        <rz-button #button2 text="Update Character" (click)="button2Click($event)">
+        </rz-button>
+      </div>
+    </rz-accordion-item>
+    <rz-accordion-item [selected]="true" text="References">
+      <rz-textbox #textbox1 [(ngModel)]="imageURL" name="textbox1">
+      </rz-textbox>
+      <rz-button #button1 text="Add image" (click)="button1Click($event)">
+      </rz-button>
+      <rz-heading #heading5 size="H3" text="This character has no image references yet!" *ngIf="Character?.imageRefs?.length == 0">
+      </rz-heading>
+      <div class="col-md-12">
+        <rz-button #button4 [disabled]="imageIndex === 0" icon="skip_previous" *ngIf="Character?.imageRefs?.length > 0" (click)="button4Click($event)">
+        </rz-button>
+        <rz-image #image0 [path]="(Character?.imageRefs || {})[imageIndex]" [style]="{'width': '400px'}" *ngIf="Character?.imageRefs?.length > imageIndex">
+        </rz-image>
+        <rz-button #button3 [disabled]="imageIndex === (Character?.imageRefs?.length - 1)" icon="skip_next" *ngIf="Character?.imageRefs?.length > 0" (click)="button3Click($event)">
+        </rz-button>
+        <rz-button #button5 [disabled]="imageIndex === (Character?.imageRefs?.length - 1)" icon="delete" text="Remove this image" *ngIf="Character?.imageRefs?.length > 0" (click)="button5Click($event)">
+        </rz-button>
+      </div>
+    </rz-accordion-item>
+    <rz-accordion-item [selected]="true" text="Stats">
+      <div class="col-md-12">
+        <rz-label #label13 text="Intelligence">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-button #button6 [disabled]="Character?.characterComplete" text="-" *ngIf="!Character?.characterComplete" (click)="button6Click($event)">
+        </rz-button>
+        <rz-textbox #textbox10 [style]="{'width': '70px'}" [(ngModel)]="Character && Character.intelligence" name="textbox10">
+        </rz-textbox>
+        <rz-button #button8 [disabled]="Character?.characterComplete" text="+" *ngIf="!Character?.characterComplete" (click)="button8Click($event)">
+        </rz-button>
+        <rz-label #label14 [text]="Descriptions?.INT">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-label #label15 text="Charisma">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-button #button19 [disabled]="Character?.characterComplete" text="-" *ngIf="!Character?.characterComplete" (click)="button19Click($event)">
+        </rz-button>
+        <rz-textbox #textbox11 [style]="{'width': '70px'}" [(ngModel)]="Character && Character.charisma" name="textbox11">
+        </rz-textbox>
+        <rz-button #button20 [disabled]="Character?.characterComplete" text="+" *ngIf="!Character?.characterComplete" (click)="button20Click($event)">
+        </rz-button>
+        <rz-label #label16 [text]="Descriptions?.CHA">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-label #label17 text="Dexterity">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-button #button21 [disabled]="Character?.characterComplete" text="-" *ngIf="!Character?.characterComplete" (click)="button21Click($event)">
+        </rz-button>
+        <rz-textbox #textbox12 [style]="{'width': '70px'}" [(ngModel)]="Character && Character.dexterity" name="textbox12">
+        </rz-textbox>
+        <rz-button #button22 [disabled]="Character?.characterComplete" text="+" *ngIf="!Character?.characterComplete" (click)="button22Click($event)">
+        </rz-button>
+        <rz-label #label18 [text]="Descriptions?.DEX">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-label #label19 text="Wisdom">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-button #button23 [disabled]="Character?.characterComplete" text="-" *ngIf="!Character?.characterComplete" (click)="button23Click($event)">
+        </rz-button>
+        <rz-textbox #textbox13 [style]="{'width': '70px'}" [(ngModel)]="Character && Character.wisdom" name="textbox13">
+        </rz-textbox>
+        <rz-button #button24 [disabled]="Character?.characterComplete" text="+" *ngIf="!Character?.characterComplete" (click)="button24Click($event)">
+        </rz-button>
+        <rz-label #label26 [text]="Descriptions?.WIS">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-label #label27 text="Strength:">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-button #button25 [disabled]="Character?.characterComplete" text="-" *ngIf="!Character?.characterComplete" (click)="button25Click($event)">
+        </rz-button>
+        <rz-textbox #textbox14 [style]="{'width': '70px'}" [(ngModel)]="Character && Character.strength" name="textbox14">
+        </rz-textbox>
+        <rz-button #button26 [disabled]="Character?.characterComplete" text="+" *ngIf="!Character?.characterComplete" (click)="button26Click($event)">
+        </rz-button>
+        <rz-label #label28 [text]="Descriptions?.STR">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-label #label29 text="Constitution">
+        </rz-label>
+      </div>
+      <div class="col-md-12">
+        <rz-button #button27 [disabled]="Character?.characterComplete" text="-" *ngIf="!Character?.characterComplete" (click)="button27Click($event)">
+        </rz-button>
+        <rz-textbox #textbox15 [style]="{'width': '70px'}" [(ngModel)]="Character && Character.constitution" name="textbox15">
+        </rz-textbox>
+        <rz-button #button28 [disabled]="Character?.characterComplete" text="+" *ngIf="!Character?.characterComplete" (click)="button28Click($event)">
+        </rz-button>
+        <rz-label #label30 [text]="Descriptions?.CON">
+        </rz-label>
+      </div>
+    </rz-accordion-item>
+    <rz-accordion-item [selected]="false" text="Feats">
+      <rz-heading #heading4 size="H3" text="Feats are only for characters that finished character creation!" *ngIf="!Character?.characterComplete">
+      </rz-heading>
+      <rz-grid #grid2 [allowFiltering]="true" [allowPaging]="true" [allowSorting]="true" [data]="Character?.feats" [pageSize]="10" *ngIf="Character?.characterComplete">
+        <rz-grid-column property="Name" title="Feat Name" width="250px">
+          <ng-template let-data gridColumnTemplate>
+          {{data?.feat?.name}}
+          </ng-template>
+        </rz-grid-column>
+        <rz-grid-column property="FeatDescription" title="Feat Description">
+          <ng-template let-data gridColumnTemplate>
+          {{data?.feat?.description}}
+          </ng-template>
+        </rz-grid-column>
+        <rz-grid-column title="Level" width="95px">
+          <ng-template let-data gridColumnTemplate>
+          {{data?.level}}
+          </ng-template>
+        </rz-grid-column>
+      </rz-grid>
+    </rz-accordion-item>
+    <rz-accordion-item [selected]="false" text="Avaliable Feats">
+      <rz-heading #heading0 size="H3" text="Feats are only for characters that finished character creation!" *ngIf="!Character?.characterComplete">
+      </rz-heading>
+      <rz-grid #grid3 [allowFiltering]="true" [allowPaging]="true" [allowSorting]="true" [count]="getFeatsCount" [data]="getFeatsResult" [pageSize]="10" *ngIf="Character?.characterComplete" (rowSelect)="grid3RowSelect($event)">
+        <rz-grid-column property="Name" title="Feat Name" width="250px">
+        </rz-grid-column>
+        <rz-grid-column property="Description" title="Description">
+        </rz-grid-column>
+        <rz-grid-column property="EnergyCost" title="Cost" width="80px">
+        </rz-grid-column>
+        <rz-grid-column title="Buy" width="140px">
+          <ng-template let-data gridColumnTemplate>
+            <rz-button #button9 text="Buy" (click)="button9Click($event, data)">
+            </rz-button>
+          </ng-template>
+        </rz-grid-column>
+      </rz-grid>
+    </rz-accordion-item>
+  </rz-accordion>
+</rz-content>

@@ -1,0 +1,28 @@
+<rz-content #content1 container="main">
+  <div class="row">
+    <div class="col-md-12">
+      <rz-form #form0 (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+        <rz-selectbar-form-field property="Stat" [required]="false" requiredText="is required" title="Stat" type="selectbar">
+          <rz-selectbar-form-field-option text="Intelligence" value="INT">
+          </rz-selectbar-form-field-option>
+          <rz-selectbar-form-field-option text="Charisma" value="CHA">
+          </rz-selectbar-form-field-option>
+          <rz-selectbar-form-field-option text="Dexterity" value="DEX">
+          </rz-selectbar-form-field-option>
+          <rz-selectbar-form-field-option text="Wisdom" value="WIS">
+          </rz-selectbar-form-field-option>
+          <rz-selectbar-form-field-option text="Constitution" value="CON">
+          </rz-selectbar-form-field-option>
+          <rz-selectbar-form-field-option text="Strength" value="STR">
+          </rz-selectbar-form-field-option>
+        </rz-selectbar-form-field>
+        <rz-integer-form-field maxText="cannot be more than" minText="cannot be less than" property="MinRange" [required]="false" requiredText="is required" title="Min Range" type="integer">
+        </rz-integer-form-field>
+        <rz-integer-form-field maxText="cannot be more than" minText="cannot be less than" property="MaxRange" [required]="false" requiredText="is required" title="Max Range" type="integer">
+        </rz-integer-form-field>
+        <rz-text-form-field [maxLength]="300" property="Description" [required]="false" requiredText="is required" [rows]="6" title="Description" type="text">
+        </rz-text-form-field>
+      </rz-form>
+    </div>
+  </div>
+</rz-content>

@@ -1,0 +1,8 @@
+<rz-content #content1 container="main">
+  <rz-heading #pageTitle size="H1" text="Add Feat Line Free Feat">
+  </rz-heading>
+  <rz-form #form0 (submit)="form0Submit($event)">
+    <rz-lookup-form-field [data]="Feats" property="FreeFeatID" [required]="true" requiredText="is required" textProperty="Name" title="Free Feat" valueProperty="ID" multipleItemsSelectedText="{0} items selected" emptyFilterText="No results found" type="lookup">
+    </rz-lookup-form-field>
+  </rz-form>
+</rz-content>

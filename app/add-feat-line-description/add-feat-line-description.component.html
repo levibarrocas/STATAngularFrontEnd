@@ -1,0 +1,10 @@
+<rz-content #content1 container="main">
+  <rz-heading #pageTitle size="H1" text="Add Feat Line Description">
+  </rz-heading>
+  <rz-form #form0 (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+    <rz-integer-form-field [min]="0" property="Amount" [required]="false" title="Amount" requiredText="is required" minText="cannot be less than" maxText="cannot be more than" type="integer">
+    </rz-integer-form-field>
+    <rz-text-form-field [maxLength]="2000" property="Description" [required]="false" [rows]="10" title="Description" requiredText="is required" type="text">
+    </rz-text-form-field>
+  </rz-form>
+</rz-content>

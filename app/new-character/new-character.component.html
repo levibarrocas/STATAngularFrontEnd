@@ -1,0 +1,22 @@
+<rz-content #content1 container="main">
+  <rz-heading #pageTitle size="H1" text="New Character">
+  </rz-heading>
+  <div class="col-md-12">
+    <rz-label #label9 text="Name:">
+    </rz-label>
+  </div>
+  <div class="col-md-12">
+    <rz-textbox #textbox8 placeholder="Name" [(ngModel)]="Name" name="textbox8">
+    </rz-textbox>
+  </div>
+  <div class="col-md-12">
+    <rz-label #label10 text="Description:">
+    </rz-label>
+  </div>
+  <div class="col-md-12">
+    <rz-textarea #textarea1 [cols]="60" placeholder="Description" [rows]="4" [(ngModel)]="Description" name="textarea1">
+    </rz-textarea>
+  </div>
+  <rz-button #button14 text="Create Character" (click)="button14Click($event)">
+  </rz-button>
+</rz-content>

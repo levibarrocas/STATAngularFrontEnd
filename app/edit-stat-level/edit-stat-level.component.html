@@ -1,0 +1,18 @@
+<rz-content #content1 container="main">
+  <div class="row">
+    <div class="col-md-12">
+      <rz-form #form0 *ngIf="true" (cancel)="form0Cancel($event)">
+        <rz-integer-form-field maxText="cannot be more than" minText="cannot be less than" property="STAT_ID" [required]="false" requiredText="is required" title="Stat Id" type="integer">
+        </rz-integer-form-field>
+        <rz-string-form-field [maxLength]="3" property="Stat" [required]="false" requiredText="is required" title="Stat" type="string">
+        </rz-string-form-field>
+        <rz-integer-form-field maxText="cannot be more than" minText="cannot be less than" property="MinRange" [required]="false" requiredText="is required" title="Min Range" type="integer">
+        </rz-integer-form-field>
+        <rz-integer-form-field maxText="cannot be more than" minText="cannot be less than" property="MaxRange" [required]="false" requiredText="is required" title="Max Range" type="integer">
+        </rz-integer-form-field>
+        <rz-string-form-field [maxLength]="300" property="Description" [required]="false" requiredText="is required" title="Description" type="string">
+        </rz-string-form-field>
+      </rz-form>
+    </div>
+  </div>
+</rz-content>

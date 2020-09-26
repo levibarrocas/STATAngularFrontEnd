@@ -1,0 +1,24 @@
+<rz-content #content1 container="main">
+  <rz-heading #pageTitle size="H1" text="Add Feat Action">
+  </rz-heading>
+  <rz-form #form0 (submit)="form0Submit($event)">
+    <rz-selectbar-form-field property="Type" [required]="true" requiredText="is required" title="Type of action" type="selectbar">
+      <rz-selectbar-form-field-option text="Steal" value="Steal">
+      </rz-selectbar-form-field-option>
+      <rz-selectbar-form-field-option text="Train" value="Train">
+      </rz-selectbar-form-field-option>
+      <rz-selectbar-form-field-option text="Cosmetic" value="Cosmetic">
+      </rz-selectbar-form-field-option>
+      <rz-selectbar-form-field-option text="Misc" value="Misc">
+      </rz-selectbar-form-field-option>
+    </rz-selectbar-form-field>
+    <rz-string-form-field property="Name" requiredText="is required" title="Name" type="string">
+    </rz-string-form-field>
+    <rz-string-form-field property="Description" requiredText="is required" title="Description" type="string">
+    </rz-string-form-field>
+    <rz-number-form-field maxText="cannot be more than" [min]="0" minText="cannot be less than" property="ActionCost" requiredText="is required" title="Energy cost of this action" type="number">
+    </rz-number-form-field>
+    <rz-number-form-field maxText="cannot be more than" [min]="0" minText="cannot be less than" property="ActionPower" requiredText="is required" title="Power of this action" type="number">
+    </rz-number-form-field>
+  </rz-form>
+</rz-content>

@@ -1,0 +1,22 @@
+<rz-content #content1 container="main">
+  <div class="row">
+    <div class="col-md-12">
+      <rz-form #form0 (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+        <rz-string-form-field [maxLength]="50" property="Category" [required]="false" requiredText="is required" title="Category" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field [maxLength]="50" property="Name" [required]="false" requiredText="is required" title="Name" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field [maxLength]="500" property="Description" [required]="false" requiredText="is required" title="Description" type="string">
+        </rz-string-form-field>
+        <rz-integer-form-field maxText="cannot be more than" minText="cannot be less than" property="EnergyCost" [required]="false" requiredText="is required" title="Cost" type="integer">
+        </rz-integer-form-field>
+        <rz-boolean-form-field property="Random" [required]="false" requiredText="is required" title="Random" type="boolean">
+        </rz-boolean-form-field>
+        <rz-string-form-field [maxLength]="1000" property="RandomMessage" [required]="false" requiredText="is required" title="Random Message" type="string">
+        </rz-string-form-field>
+        <rz-integer-form-field maxText="cannot be more than" minText="cannot be less than" property="MaxEnergy" [required]="false" requiredText="is required" title="Max Energy" type="integer">
+        </rz-integer-form-field>
+      </rz-form>
+    </div>
+  </div>
+</rz-content>
